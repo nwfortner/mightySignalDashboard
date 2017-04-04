@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-console.log(path.resolve(__dirname, 'client'));
 
 module.exports = {
   devtool: 'source-map',
