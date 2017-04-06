@@ -4,38 +4,32 @@ const SubscriptionListEntry = (props) => {
   return (
     <div className='subscriptionListEntry'>
       <table>
-        <tr className='subscriptionRow'>
-          <div>
+        <tbody>
+          <tr className='subscriptionRow'>
             <td className='subsciptionName'>
-              <h4>Name: </h4>
-              {props.subscription.name}
+              <h4>Name : </h4>
+              &emsp; {props.subscription.name}
             </td>
-          </div>
-        </tr>
-        <tr className='subscriptionRow'>
-          <div>
+          </tr>
+          <tr className='subscriptionRow'>
             <td className='subscriptionID'>
-              <h4>ID: </h4>
-              {props.subscription.id}
+              <h4>ID : </h4>
+                &emsp; {props.subscription.id}
             </td>
-          </div>
-        </tr>
-        <tr className='subscriptionRow'>
-          <div>
+          </tr>
+          <tr className='subscriptionRow'>
             <td className='subscriptionAmount'>
-              <h4>Amount: </h4>
-              {props.subscription.amount}
+              <h4>Amount : </h4>
+                &emsp; {props.subscription.amount}
             </td>
-          </div>
-        </tr>
-        <tr className='subscriptionRow'>
-          <div>
+          </tr>
+          <tr className='subscriptionRow'>
             <td className='subscriptionPaymentDate'>
-              <h4>Payment Date: </h4>
-              {props.subscription.date}
+              <h4>Payment Date : </h4>
+                &emsp; {new Date(props.subscription.date).toLocaleDateString('en-US')}
             </td>
-          </div>
-        </tr>
+          </tr>
+        </tbody>
       </table>
     </div>
   );

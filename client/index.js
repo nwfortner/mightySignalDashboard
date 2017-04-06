@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';
 import App from './components/app/App.jsx';
 import rootReducer from './rootReducer.js';
-import './index.css';
+import './index.less';
 
 
 

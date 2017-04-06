@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+
 module.exports = {
   devtool: 'source-map',
   entry: [
@@ -26,9 +27,14 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.less$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader'
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'less-loader'
+          }],
+          fallback: 'style-loader'
         })
       }
     ]
@@ -37,7 +43,10 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'client/index.html')
     }),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin({
+      filename: 'styles.css',
+      disable: process.env.NODE_ENV !== 'production'
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]
