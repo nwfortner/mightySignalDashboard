@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -25,12 +26,10 @@ module.exports = {
         use: 'babel-loader'
       },
       {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          {loader: 'css-loader', options: {importLoaders: 1}},
-          'less-loader'
-        ]
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader'
+        })
       }
     ]
   },
@@ -38,6 +37,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, 'client/index.html')
     }),
+    new ExtractTextPlugin('styles.css'),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ]

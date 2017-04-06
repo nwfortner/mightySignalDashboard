@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  height: 100vh;
+  flex-flow: row nowrap;
+  color: blue;
+  overflow: hidden;
+}
+
+#app {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+  height: 100vh;
+  border: thin solid black;
+}
+
+.dashboardMain {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1;
+  justify-content: space-around;
+  border: thin solid black;
+}
+
+.subscriptionMain {
+  display: flex;
+  flex-flow: column nowrap;
+  border: thin solid black;
+  width: 40%;
+}
+
+.revenueMain {
+  display: flex;
+  flex-flow: column nowrap;
+  border: thin solid black;
+  width: 60%;
+}
+
+.monthlyRevenue {
+  margin: 1%;
+  border: thin solid black;
+  flex: 1;
+}
+
+.revenueGraph {
+  margin: 1%;
+  flex: 2;
+  border: thin solid black;
+  height: 60%;
+}
+
+.addSubscriptions {
+  margin: 1%;
+  flex: 1;
+  border: thin solid black;
+}
+
+.subscriptionsList {
+  margin: 1%;
+  flex: 2;
+  border: thin solid black;
+  height: 60%;
+  overflow: scroll;
+}
+
+.subscriptionListEntry {
+  margin: 2% 2%;
+  border: thin solid red;
+  padding-bottom: 2%;
+}
