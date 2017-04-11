@@ -26,8 +26,7 @@ const compilerCallback = (error, stats) => {
   }
 };
 
-console.log(process.env.NODE_ENV, 5);
-if (process.env.NODE !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   app.use(webpackDevMiddleware(compilerInstance, {
     publicPath: webpackConfig.output.publicPath,
     stats: {colors: true}
