@@ -6,6 +6,7 @@ import axios from 'axios';
 import _ from 'underscore';
 import SubscriptionMain from '../subscriptionMain/SubscriptionMain.jsx';
 import RevenueMain from '../revenueMain/RevenueMain.jsx';
+import Moment from 'moment';
 
 
 class App extends React.Component {
@@ -21,8 +22,25 @@ class App extends React.Component {
     });
   }
 
+  addSubscription(newSubscription) {
+    axios.post('/subscriptions', newSubscription)
+    .then(() => {
+      return axios.get('/subscriptions')
+      .then(subscriptions => {
+        this.props.actions.requestSubscriptionsRecieved(subscriptions);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
   generateMothlyRevenue(subscriptions) {
     const monthlyRevenue = subscriptions.reduce((init, curr, index, array) => {
+      const currDate = new Date(curr.date);
       const currMonth = new Date(curr.date).getMonth();
       const currYear = new Date(curr.date).getFullYear();
       const currAmount = +curr.amount.substr(1);
@@ -39,11 +57,19 @@ class App extends React.Component {
           init[init.length - 1].monthlyGrowth = init[init.length - 1].amount / init[init.length - 2].amount;
         }
       }else {
-        init.push({
-          date: new Date(currYear, currMonth, 1, 0),
-          amount: currAmount,
-          monthlyGrowth: 0
+        const findRevenueEntry = init.findIndex((entry) => {
+          return Moment(currDate).format('MM/YY') === Moment(entry.date).format('MM/YY');
         });
+        if(findRevenueEntry !== -1) {
+          init[findRevenueEntry].amount += currAmount;
+          init[findRevenueEntry].monthlyGrowth = init[findRevenueEntry].amount / init[findRevenueEntry - 1].amount;
+        }else {
+          init.push({
+            date: new Date(currYear, currMonth, 1, 0),
+            amount: currAmount,
+            monthlyGrowth: 0
+          });
+        }
       }
       return init;
     }, []);
@@ -65,8 +91,8 @@ class App extends React.Component {
   render() {
     return (
       <main className='dashboardMain'>
-        <SubscriptionMain subscriptions={this.props.subscriptions}></SubscriptionMain>
-        <RevenueMain></RevenueMain>
+        <SubscriptionMain subscriptions={this.props.subscriptions} addSubscription={this.addSubscription.bind(this)}></SubscriptionMain>
+        <RevenueMain monthlyRevenue={this.props.monthlyRevenue}></RevenueMain>
       </main>
     );
   }

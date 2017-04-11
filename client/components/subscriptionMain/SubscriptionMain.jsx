@@ -7,7 +7,7 @@ class SubscriptionMain extends React.Component {
   render() {
     return (
       <section className='subscriptionMain'>
-        <AddSubscriptions></AddSubscriptions>
+        <AddSubscriptions addSubscription={this.props.addSubscription}></AddSubscriptions>
         <SubscriptionsList subscriptions={this.props.subscriptions}></SubscriptionsList>
       </section>
     );

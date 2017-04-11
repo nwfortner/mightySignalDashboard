@@ -2,12 +2,12 @@
 @text-color: white;
 @secondary-text-color: #01a9d8;
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400');
+@import url('https://use.fontawesome.com/14023fc253.css');
 
 body {
   display: flex;
   height: 100vh;
   flex-flow: row nowrap;
-  color: blue;
   overflow: hidden;
   background-color: @background-color;
   color: @secondary-text-color;
@@ -23,6 +23,7 @@ body {
 }
 
 .dashboardMain {
+  height: 100%;
   display: flex;
   flex-flow: row nowrap;
   flex: 1;
@@ -35,6 +36,7 @@ body {
   flex-flow: column nowrap;
   border: thin solid black;
   width: 40%;
+  margin-bottom: 1%;
 }
 
 .revenueMain {
@@ -42,25 +44,85 @@ body {
   flex-flow: column nowrap;
   border: thin solid black;
   width: 60%;
+  margin-bottom: 1%;
 }
 
 .monthlyRevenue {
   margin: 1%;
-  border: thin solid black;
+  border: 2px solid @secondary-text-color;
+  border-radius: 5px;
   flex: 1;
 }
 
 .revenueGraph {
   margin: 1%;
   flex: 2;
-  border: thin solid black;
+  border: 2px solid @secondary-text-color;
+  border-radius: 5px;
   height: 60%;
+  background-color: white;
 }
 
 .addSubscriptions {
+  display: flex;
   margin: 1%;
   flex: 1;
-  border: thin solid black;
+  border: 2px solid @secondary-text-color;
+  border-radius: 5px;
+  height: 40%;
+  form {
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    width: 90%;
+    label {
+      display: flex;
+      height: 15%;
+      width: 100%;
+      div {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 100%;
+        span {
+          margin: auto;
+          width: 10%;
+        }
+        input {
+          width: 90%;
+          border: none;
+          font-size: medium;
+          background: transparent;
+          border-bottom: thin solid @secondary-text-color;
+          outline: none;
+          color: white;
+          &::-webkit-input-placeholder {
+            color: white;
+          }
+          &::-moz-placeholder {
+            color: white;
+          }
+          &:-ms-input-placeholder {
+            color: white;
+          }
+          &:-moz-placeholder {
+            color: white;
+          }
+        }
+      }
+    }
+    input[type='submit'] {
+      height: 15%;
+      border-radius: 2px;
+      border: none;
+      width: 90%;
+      align-self: flex-end;
+      background-color: @secondary-text-color;
+      font-family: inherit;
+      font-size: 1em;
+    }
+  }
 }
 
 .subscriptionsList {
@@ -92,12 +154,29 @@ body {
   width: 95%;
   margin: 3% auto;
   padding: 5%;
-  border: 2px solid white;
+  border: none;
   border-radius: 2px;
   outline: none;
-  background-color: white;
+  background-color: transparent;
   font-size: 1em;
+  color: white;
   &:focus {
-    box-shadow: 0 0 10px 1px white;
+    box-shadow: 0 0 10px 1px @secondary-text-color;
   }
+  &::-webkit-input-placeholder {
+    color: white;
+  }
+  &::-moz-placeholder {
+    color: white;
+  }
+  &:-ms-input-placeholder {
+    color: white;
+  }
+  &:-moz-placeholder {
+    color: white;
+  }
+}
+
+.rd3-chart-title {
+  text-align: center;
 }
