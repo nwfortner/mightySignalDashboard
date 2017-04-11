@@ -6,7 +6,7 @@ class RevenueMain extends React.Component {
   render() {
     return (
       <section className='revenueMain'>
-        <MonthlyRevenue></MonthlyRevenue>
+        <MonthlyRevenue monthlyRevenue={this.props.monthlyRevenue}></MonthlyRevenue>
         <RevenueGraph monthlyRevenue={this.props.monthlyRevenue}></RevenueGraph>
       </section>
     );

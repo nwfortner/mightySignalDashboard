@@ -5,15 +5,20 @@ class AddSubscriptions extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: null,
-      amount: null,
-      date: null
+      name: '',
+      amount: '',
+      date: ''
     };
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.props.addSubscription(this.state);
+    this.setState({
+      name: '',
+      amount: '',
+      date: ''
+    });
   }
 
   handleChange(newSubscriptionDataName, newSubscriptionDataValue) {
@@ -25,7 +30,7 @@ class AddSubscriptions extends React.Component {
   render() {
     return (
       <div className='addSubscriptions'>
-        <AddSubscriptionForm updateFormData={this.handleChange.bind(this)} submitFormData={this.handleSubmit.bind(this)}/>
+        <AddSubscriptionForm value={this.state} updateFormData={this.handleChange.bind(this)} submitFormData={this.handleSubmit.bind(this)}/>
       </div>
     );
   }
