@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
 import GrowthOverTimeTable from '../growthOverTimeTable/GrowthOverTimeTable.jsx';
-import GrowthMonthOverMonth from '../growthMonthOverMonth/GrowthMonthOverMonth.jsx';
+import GrowthMonthOverMonthTable from '../growthMonthOverMonthTable/GrowthMonthOverMonthTable.jsx';
 
 class MonthlyRevenue extends React.Component {
 
@@ -23,7 +23,7 @@ class MonthlyRevenue extends React.Component {
       <div className='monthlyRevenue'>
         <div className='monthlyGrowth'>
           <h4>Growth Month Over Month (%)</h4>
-          <GrowthMonthOverMonth monthlyRevenue={this.props.monthlyRevenue}/>
+          <GrowthMonthOverMonthTable monthlyRevenue={this.props.monthlyRevenue}/>
         </div>
         <div className='growthOverTime'>
           <h4>Growth Over Time (%)</h4>

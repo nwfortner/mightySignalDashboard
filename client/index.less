@@ -192,7 +192,7 @@ body {
   flex: 1;
   text-align: center;
   flex-flow: column nowrap;
-  overflow: hidden;
+  overflow: scroll;
   .revenueGrowthList {
     margin: 0;
     padding-top: 0;
@@ -223,9 +223,12 @@ body {
   }
 }
 
-.revenueListItem {
-  display: flex;
-  span {
-    width: 40%;
+.revenueGrowthTable {
+  margin: auto;
+  margin-top: 0;
+  height: 40%;
+  td {
+    padding-top: 5%;
+    width: 20%;
   }
 }
