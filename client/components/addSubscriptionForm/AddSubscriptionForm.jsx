@@ -9,13 +9,26 @@ const AddSubscriptionForm = (props) => {
       <label htmlFor='nameInput'>
         <div>
           <span className='fa fa-building fa-lg'></span>
-          <input className='nameInput' type='text' placeholder='Company name' required  name='name' value={props.value.name}></input>
+          <input className='nameInput'
+            type='text'
+            placeholder='Company name'
+            required
+            name='name'
+            value={props.value.name}
+          />
         </div>
       </label>
       <label htmlFor='amountInput'>
         <div>
           <span className='fa fa-usd fa-lg'></span>
-          <input className='amountInput' type='text' pattern='\d+\.\d{1,2}' placeholder='Payment amount' required name='amount' value={props.value.amount}></input>
+          <input
+            className='amountInput'
+            type='text' pattern='\d+\.\d{1,2}'
+            placeholder='Payment amount'
+            required name='amount'
+            value={props.value.amount}
+            title='Input number in monetary format. (ex. 20.15)'
+          />
         </div>
       </label>
       <label htmlFor='dateInput'>
