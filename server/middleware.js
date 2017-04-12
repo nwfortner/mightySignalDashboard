@@ -26,15 +26,15 @@ const compilerCallback = (error, stats) => {
   }
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(webpackDevMiddleware(compilerInstance, {
-    publicPath: webpackConfig.output.publicPath,
-    stats: {colors: true}
-  }));
-  app.use(webpackHotMiddleware(compilerInstance));
-} else {
-  compilerInstance.run(compilerCallback);
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   app.use(webpackDevMiddleware(compilerInstance, {
+//     publicPath: webpackConfig.output.publicPath,
+//     stats: {colors: true}
+//   }));
+//   app.use(webpackHotMiddleware(compilerInstance));
+// } else {
+//   compilerInstance.run(compilerCallback);
+// }
 
 
 app.use('/', express.static(path.resolve(__dirname, '../dist')));
