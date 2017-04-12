@@ -23,11 +23,7 @@ const GrowthMonthOverMonthTable = (props) => {
       <tbody>
         {generateListItems}
       </tbody>
-
     </table>
-    // <ul className='revenueGrowthList'>
-    //   {generateListItems}
-    // </ul>
   );
 };
 
