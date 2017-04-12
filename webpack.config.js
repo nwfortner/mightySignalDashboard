@@ -8,7 +8,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
   devtool: 'source-map',
   entry: [
-    'webpack-hot-middleware/client',
+    // 'webpack-hot-middleware/client',
     path.resolve(__dirname, 'client')
   ],
   output: {
