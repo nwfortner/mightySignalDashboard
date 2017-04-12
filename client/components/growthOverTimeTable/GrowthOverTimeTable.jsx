@@ -13,13 +13,13 @@ const GrowthOverTimeTable = (props) => {
       <tbody>
         <tr>
           <td>
-            &mdash; {+props.growthOverTimeData[2].toFixed(2)}%
+            {+props.growthOverTimeData[2].toFixed(2)}%
           </td>
           <td>
-            &mdash; {+props.growthOverTimeData[1].toFixed(2)}%
+            {+props.growthOverTimeData[1].toFixed(2)}%
           </td>
           <td>
-            &mdash; {+props.growthOverTimeData[0].toFixed(2)}%
+            {+props.growthOverTimeData[0].toFixed(2)}%
           </td>
         </tr>
       </tbody>
