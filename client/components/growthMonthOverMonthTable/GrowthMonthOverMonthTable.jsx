@@ -9,12 +9,8 @@ const GrowthMonthOverMonthTable = (props) => {
         <td>{(+data.monthlyGrowth * 100).toFixed(2)}%</td>
         <td>${+data.amount.toFixed(2)}</td>
       </tr>
-
-      // <li key={index} className='revenueListItem'>
-      //   <span className='revenuelistMonth'>{Moment(data.date).format('MM/YY')}</span> : <span className='revenueListAmount'>{(+data.monthlyGrowth * 100).toFixed(2)}%</span>
-      // </li>
     );
-  });
+  }).reverse();
   return (
     <table className='revenueGrowthTable'>
       <thead>
