@@ -3,8 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const webpackConfig = require('../webpack.config.js');
-// const webpackDevMiddleware = require('webpack-dev-middleware');
-// const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const path = require('path');
 
 const compilerInstance = webpack(webpackConfig);
@@ -26,15 +26,15 @@ const compilerCallback = (error, stats) => {
   }
 };
 
-// if (process.env.NODE_ENV !== 'production') {
-//   app.use(webpackDevMiddleware(compilerInstance, {
-//     publicPath: webpackConfig.output.publicPath,
-//     stats: {colors: true}
-//   }));
-//   app.use(webpackHotMiddleware(compilerInstance));
-// } else {
-//   compilerInstance.run(compilerCallback);
-// }
+if (process.env.NODE_ENV !== 'production') {
+  app.use(webpackDevMiddleware(compilerInstance, {
+    publicPath: webpackConfig.output.publicPath,
+    stats: {colors: true}
+  }));
+  app.use(webpackHotMiddleware(compilerInstance));
+} else {
+  compilerInstance.run(compilerCallback);
+}
 
 
 app.use('/', express.static(path.resolve(__dirname, '../dist')));
